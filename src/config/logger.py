@@ -23,8 +23,9 @@ from config.constants import (
     LOG_INFO,
     MAX_LOG_BACKUP_FILES,
     MAX_LOG_FILE_SIZE_MB,
+    PROJECT_NAME,
 )
-from config.paths import LOGS_DIR
+from config.path import LOGS_DIR
 
 ###############################################################################
 # Log Format

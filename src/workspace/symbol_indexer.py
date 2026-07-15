@@ -106,12 +106,42 @@ class SymbolIndexer:
                 file,
             )
 
+            self._extract_imports(
+                tree,
+                file,
+            )
+
+            self._extract_variables(
+                tree,
+                file,
+            )
+
         except Exception:
 
             logger.exception(
                 "Failed to index %s",
                 file,
             )
+
+    def remove_file(
+        self,
+        file: Path,
+    ) -> None:
+        """Remove symbols produced by a deleted or modified source file."""
+
+        self._memory.remove_file(str(file))
+
+    def reindex_file(
+        self,
+        file: Path,
+    ) -> None:
+        """Replace the symbols for one source file."""
+
+        self.remove_file(file)
+
+        if file.is_file():
+
+            self.index_file(file)
 
     ###########################################################################
 
@@ -260,29 +290,7 @@ class SymbolIndexer:
 
             try:
 
-                source = file.read_text(
-                    encoding="utf-8",
-                )
-
-                tree = ast.parse(
-                    source,
-                    filename=str(file),
-                )
-
-                self._visit_tree(
-                    tree,
-                    file,
-                )
-
-                self._extract_imports(
-                    tree,
-                    file,
-                )
-
-                self._extract_variables(
-                    tree,
-                    file,
-                )
+                self.index_file(file)
 
             except Exception:
 
