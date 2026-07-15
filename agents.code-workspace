@@ -1,0 +1,76 @@
+{
+	"folders": [
+		{
+			"path": "agents"
+		},
+		{
+			"path": "analyzers"
+		},
+		{
+			"path": "api"
+		},
+		{
+			"path": "assets"
+		},
+		{
+			"path": "collectors"
+		},
+		{
+			"path": "config"
+		},
+		{
+			"path": "core"
+		},
+		{
+			"path": "database"
+		},
+		{
+			"path": "docs"
+		},
+		{
+			"path": "examples"
+		},
+		{
+			"path": "indexer"
+		},
+		{
+			"path": "listeners"
+		},
+		{
+			"path": "logs"
+		},
+		{
+			"path": "memory"
+		},
+		{
+			"path": "patcher"
+		},
+		{
+			"path": "plugins"
+		},
+		{
+			"path": "prompts"
+		},
+		{
+			"path": "providers"
+		},
+		{
+			"path": "scripts"
+		},
+		{
+			"path": "services"
+		},
+		{
+			"path": "src"
+		},
+		{
+			"path": "tests"
+		},
+		{
+			"path": "ui"
+		},
+		{
+			"path": "utils"
+		}
+	]
+}
