@@ -104,6 +104,18 @@ class SemanticMemory(VectorMemory):
             document_id,
         )
 
+    def remove_file(
+        self,
+        file: str,
+    ) -> None:
+        """Remove all semantic chunks associated with a workspace file."""
+
+        for document_id, document in list(self._vectors.items()):
+
+            if document.get("metadata", {}).get("file") == file:
+
+                self.delete(document_id)
+
     ###########################################################################
 
     def search_text(

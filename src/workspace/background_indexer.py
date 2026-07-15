@@ -21,6 +21,7 @@ from typing import Any
 from config.logger import get_logger
 
 from workspace.project_index import project_index
+from workspace.workspace_indexer import workspace_indexer
 from workspace.workspace_manager import workspace_manager
 
 ###############################################################################
@@ -170,7 +171,7 @@ class BackgroundIndexer:
                 "Workspace changes detected."
             )
 
-            project_index.refresh()
+            workspace_indexer.incremental_index()
 ###############################################################################
 # Manual Refresh
 ###############################################################################
@@ -186,7 +187,7 @@ class BackgroundIndexer:
             "Manual project refresh requested."
         )
 
-        project_index.refresh()
+        workspace_indexer.full_index()
 
 ###############################################################################
 # Status

@@ -185,6 +185,18 @@ class SymbolMemory(BaseMemory):
             self._symbols.values()
         )
 
+    def remove_file(
+        self,
+        file: str,
+    ) -> None:
+        """Remove every symbol whose origin is ``file``."""
+
+        for key, symbol in list(self._symbols.items()):
+
+            if symbol.get("file") == file:
+
+                self.delete(key)
+
 ###############################################################################
 # Statistics
 ###############################################################################

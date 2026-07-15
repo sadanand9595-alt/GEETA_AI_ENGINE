@@ -192,9 +192,21 @@ class SemanticIndexer:
             file,
         )
 
-        self.index_file(
-            file,
-        )
+        self.remove_file(file)
+
+        if file.is_file():
+
+            self.index_file(
+                file,
+            )
+
+    def remove_file(
+        self,
+        file: Path,
+    ) -> None:
+        """Remove semantic chunks generated from ``file``."""
+
+        self._memory.remove_file(str(file))
 
 ###############################################################################
 # Statistics

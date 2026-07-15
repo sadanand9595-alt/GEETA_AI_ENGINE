@@ -19,6 +19,7 @@ from typing import Any
 from config.logger import get_logger
 
 from workspace.workspace_manager import workspace_manager
+from workspace.workspace_indexer import workspace_indexer
 from workspace.project_analyzer import project_analyzer
 from workspace.dependency_graph import dependency_graph
 from workspace.project_index import project_index
@@ -76,9 +77,7 @@ class IndexPipeline:
 
         start = time.perf_counter()
 
-        dependency_graph.build()
-
-        project_index.build()
+        workspace_indexer.full_index()
 
         project_analyzer.report()
 
@@ -108,7 +107,7 @@ class IndexPipeline:
             "Running incremental index..."
         )
 
-        project_index.refresh()
+        workspace_indexer.incremental_index()
 
     ###########################################################################
 
